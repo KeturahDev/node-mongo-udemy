@@ -13,6 +13,7 @@ Following along [The Complete Node.js Developer Course (3rd Edition)](https://ww
 - [Mongoose](https://mongoosejs.com/)
 - Robo T3
 - VsCode
+- Postman
 - git
 
 ***This content is modeled after a tutorial by Andrew Mead and Rob Percival***

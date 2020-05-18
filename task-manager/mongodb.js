@@ -14,18 +14,30 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
   
   const db = client.db(databaseName)
 
-  //UPDATING
-  db.collection('users').updateOne({
-    _id: new ObjectID("5ec1d49804e8b30496c15b81")
+  // //UPDATING
+  // db.collection('users').updateOne({
+  //   _id: new ObjectID("5ec1d49804e8b30496c15b81")
+  // }, {
+  //   $inc: {
+  //     age: 1
+  //   }
+  // }).then((result) => {
+  //   console.log(result)
+  // }).catch((error) => {
+  //   console.log("update rejected: ", error)
+  // })
+  //UPDATE MANY
+  db.collection('tasks').updateMany({
+    completed: false
   }, {
-    $inc: {
-      age: 1
+    $set: {
+      completed: true
     }
   }).then((result) => {
     console.log(result)
-  }).catch((error) => {
-    console.log("update rejected: ", error)
-  })
+  }).catch((error => {
+    console.log(error)
+  }))
 })
 
 

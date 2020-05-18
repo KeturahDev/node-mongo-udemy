@@ -14,7 +14,24 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
   
   const db = client.db(databaseName)
 
-  // //UPDATING
+  db.collection('users').deleteMany({
+    age: 27
+  }).then((result) => {
+    console.log(result)
+  }).catch((error) => {
+    console.log(error)
+  })
+})
+
+
+
+
+
+
+
+
+//PREV CALLS
+// //UPDATING
   // db.collection('users').updateOne({
   //   _id: new ObjectID("5ec1d49804e8b30496c15b81")
   // }, {
@@ -27,27 +44,17 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
   //   console.log("update rejected: ", error)
   // })
   //UPDATE MANY
-  db.collection('tasks').updateMany({
-    completed: false
-  }, {
-    $set: {
-      completed: true
-    }
-  }).then((result) => {
-    console.log(result)
-  }).catch((error => {
-    console.log(error)
-  }))
-})
-
-
-
-
-
-
-
-
-//PREV CALLS
+  // db.collection('tasks').updateMany({
+  //   completed: false
+  // }, {
+  //   $set: {
+  //     completed: true
+  //   }
+  // }).then((result) => {
+  //   console.log(result)
+  // }).catch((error => {
+  //   console.log(error)
+  // }))
 // FINDING
   // db.collection('tasks').findOne({_id: new ObjectID("5ec1e1e26ef989057452a2e8")}, (error, task) => {
   //   if(error) {

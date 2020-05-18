@@ -10,6 +10,7 @@ Following along [The Complete Node.js Developer Course (3rd Edition)](https://ww
 ## Technologies
 - Node.js
 - MongoDB
+- [Mongoose](https://mongoosejs.com/)
 - Robo T3
 - VsCode
 - git

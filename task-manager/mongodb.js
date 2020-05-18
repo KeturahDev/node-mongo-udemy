@@ -14,18 +14,43 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
   
   const db = client.db(databaseName)
 
-  db.collection('tasks').findOne({_id: new ObjectID("5ec1e1e26ef989057452a2e8")}, (error, task) => {
-    if(error) {
-      return console.log("Something went wrong")
+  //UPDATING
+  const updatePromise = db.collection('users').updateOne({
+    _id: new ObjectID("5ec1d49804e8b30496c15b81")
+  }, {
+    $set: {
+      name: "Jannet"
     }
-    console.log(task)
   })
+
+  updatePromise.then((result) => {
+    console.log(result)
+  }).catch((error) => {
+    console.log("update rejected: ", error)
+  })
+})
+
+
+
+
+
+
+
+
+//PREV CALLS
+// FINDING
+  // db.collection('tasks').findOne({_id: new ObjectID("5ec1e1e26ef989057452a2e8")}, (error, task) => {
+  //   if(error) {
+  //     return console.log("Something went wrong")
+  //   }
+  //   console.log(task)
+  // })
 
   // db.collection('tasks').find({description: 'finish captsone'}).toArray((error, tasks) => {
   //   console.log(tasks)
   // })
 
-
+// INSERTING
   // db.collection('users').insertOne({
   //   name: 'Kitty',
   //   age: 22
@@ -69,6 +94,3 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
   //   }
   //   console.log(result.ops)
   // })
-})
-
-
